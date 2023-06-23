@@ -3,11 +3,14 @@ package controllers
 import (
 	"encoding/json"
 	"errors"
-	"github.com/udistrital/planes_estudios_crud/planes_estudios_crud/models"
 	"strconv"
 	"strings"
 
+	"github.com/udistrital/planes_estudios_crud/planes_estudios_crud/models"
+	"github.com/udistrital/utils_oas/time_bogota"
+
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/logs"
 )
 
 // PlanEstudioProyectoAcademicoController operations for PlanEstudioProyectoAcademico
@@ -34,14 +37,22 @@ func (c *PlanEstudioProyectoAcademicoController) URLMapping() {
 func (c *PlanEstudioProyectoAcademicoController) Post() {
 	var v models.PlanEstudioProyectoAcademico
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+
+		v.FechaCreacion = time_bogota.TiempoBogotaFormato()
+		v.FechaModificacion = time_bogota.TiempoBogotaFormato()
+
 		if _, err := models.AddPlanEstudioProyectoAcademico(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
-			c.Data["json"] = v
+			c.Data["json"] = map[string]interface{}{"Success": true, "Status": "201", "Message": "Registration successful", "Data": v}
 		} else {
-			c.Data["json"] = err.Error()
+			logs.Error(err)
+			c.Data["mesaage"] = "Error service POST: The request contains an incorrect data type or an invalid parameter"
+			c.Abort("400")
 		}
 	} else {
-		c.Data["json"] = err.Error()
+		logs.Error(err)
+		c.Data["mesaage"] = "Error service POST: The request contains an incorrect data type or an invalid parameter"
+		c.Abort("400")
 	}
 	c.ServeJSON()
 }
@@ -58,9 +69,11 @@ func (c *PlanEstudioProyectoAcademicoController) GetOne() {
 	id, _ := strconv.Atoi(idStr)
 	v, err := models.GetPlanEstudioProyectoAcademicoById(id)
 	if err != nil {
-		c.Data["json"] = err.Error()
+		logs.Error(err)
+		c.Data["mesaage"] = "Error service GetOne: The request contains an incorrect parameter or no record exists"
+		c.Abort("404")
 	} else {
-		c.Data["json"] = v
+		c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Request successful", "Data": v}
 	}
 	c.ServeJSON()
 }
@@ -121,9 +134,14 @@ func (c *PlanEstudioProyectoAcademicoController) GetAll() {
 
 	l, err := models.GetAllPlanEstudioProyectoAcademico(query, fields, sortby, order, offset, limit)
 	if err != nil {
-		c.Data["json"] = err.Error()
+		logs.Error(err)
+		c.Data["mesaage"] = "Error service GetAll: The request contains an incorrect parameter or no record exists"
+		c.Abort("404")
 	} else {
-		c.Data["json"] = l
+		if l == nil {
+			l = append(l, map[string]interface{}{})
+		}
+		c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Request successful", "Data": l}
 	}
 	c.ServeJSON()
 }
@@ -139,15 +157,23 @@ func (c *PlanEstudioProyectoAcademicoController) GetAll() {
 func (c *PlanEstudioProyectoAcademicoController) Put() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	v := models.PlanEstudioProyectoAcademico{Id: id}
+	v := models.Estado{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+		if get, errGet := models.GetPlanEstudioProyectoAcademicoById(id); errGet == nil {
+			v.FechaCreacion = time_bogota.TiempoCorreccionFormato(get.FechaCreacion)
+			v.FechaModificacion = time_bogota.TiempoBogotaFormato()
+		}
 		if err := models.UpdatePlanEstudioProyectoAcademicoById(&v); err == nil {
-			c.Data["json"] = "OK"
+			c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Update successful", "Data": v}
 		} else {
-			c.Data["json"] = err.Error()
+			logs.Error(err)
+			c.Data["mesaage"] = "Error service Put: The request contains an incorrect data type or an invalid parameter"
+			c.Abort("400")
 		}
 	} else {
-		c.Data["json"] = err.Error()
+		logs.Error(err)
+		c.Data["mesaage"] = "Error service Put: The request contains an incorrect data type or an invalid parameter"
+		c.Abort("400")
 	}
 	c.ServeJSON()
 }
@@ -163,9 +189,12 @@ func (c *PlanEstudioProyectoAcademicoController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	if err := models.DeletePlanEstudioProyectoAcademico(id); err == nil {
-		c.Data["json"] = "OK"
+		d := map[string]interface{}{"Id": id}
+		c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Delete successful", "Data": d}
 	} else {
-		c.Data["json"] = err.Error()
+		logs.Error(err)
+		c.Data["mesaage"] = "Error service Delete: Request contains incorrect parameter"
+		c.Abort("404")
 	}
 	c.ServeJSON()
 }

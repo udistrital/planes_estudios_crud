@@ -5,13 +5,12 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
 )
 
 type PlanEstudio struct {
-	Id                           int               `orm:"column(id);pk"`
+	Id                           int               `orm:"column(id);pk;auto"`
 	Nombre                       string            `orm:"column(nombre)"`
 	CodigoAbreaviacion           string            `orm:"column(codigo_abreaviacion);null"`
 	Codigo                       string            `orm:"column(codigo)"`
@@ -25,8 +24,8 @@ type PlanEstudio struct {
 	SoporteDocumental            string            `orm:"column(soporte_documental);type(json);null"`
 	Observacion                  string            `orm:"column(observacion);null"`
 	Activo                       bool              `orm:"column(activo)"`
-	FechaCreacion                time.Time         `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion            time.Time         `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	FechaCreacion                string            `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion            string            `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 	PlanEstudioPadreId           *PlanEstudio      `orm:"column(plan_estudio_padre_id);rel(fk)"`
 	EstadoAprobacionId           *EstadoAprobacion `orm:"column(estado_aprobacion_id);rel(fk)"`
 }
@@ -63,7 +62,7 @@ func GetPlanEstudioById(id int) (v *PlanEstudio, err error) {
 func GetAllPlanEstudio(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(PlanEstudio))
+	qs := o.QueryTable(new(PlanEstudio)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute

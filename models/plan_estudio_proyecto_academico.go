@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
 )
@@ -16,8 +15,8 @@ type PlanEstudioProyectoAcademico struct {
 	ProyectoAcademicoId int          `orm:"column(proyecto_academico_id)"`
 	OrdenProyecto       string       `orm:"column(orden_proyecto);type(json)"`
 	Activo              bool         `orm:"column(activo)"`
-	FechaCreacion       time.Time    `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion   time.Time    `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	FechaCreacion       string       `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion   string       `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 func (t *PlanEstudioProyectoAcademico) TableName() string {
@@ -52,7 +51,7 @@ func GetPlanEstudioProyectoAcademicoById(id int) (v *PlanEstudioProyectoAcademic
 func GetAllPlanEstudioProyectoAcademico(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(PlanEstudioProyectoAcademico))
+	qs := o.QueryTable(new(PlanEstudioProyectoAcademico)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
