@@ -2,8 +2,6 @@ lastupdate.tmp
 .vscode/
 planes_estudios_crud
 main
-go.mod
-go.sum
 .scannerwork/
 swagger/*.png
 swagger/*.html
@@ -17,3 +15,5 @@ swagger/images/
 swagger/lang/
 swagger/lib/
 *.exe
+go.mod
+go.sum
