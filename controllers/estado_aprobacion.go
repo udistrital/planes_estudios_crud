@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/udistrital/planes_estudios_crud/planes_estudios_crud/models"
+	"github.com/udistrital/planes_estudios_crud/models"
 	"github.com/udistrital/utils_oas/time_bogota"
 
 	"github.com/astaxie/beego"
