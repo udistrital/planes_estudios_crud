@@ -1,0 +1,677 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "beego Test API",
+        "description": "beego has a very cool tools to autogenerate documents for your API",
+        "version": "1.0.0",
+        "termsOfService": "http://beego.me/",
+        "contact": {
+            "email": "astaxie@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/estado_aprobacion/": {
+            "get": {
+                "tags": [
+                    "estado_aprobacion"
+                ],
+                "description": "get EstadoAprobacion",
+                "operationId": "EstadoAprobacionController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.EstadoAprobacion"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "estado_aprobacion"
+                ],
+                "description": "create EstadoAprobacion",
+                "operationId": "EstadoAprobacionController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for EstadoAprobacion content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.EstadoAprobacion"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.EstadoAprobacion"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/estado_aprobacion/{id}": {
+            "get": {
+                "tags": [
+                    "estado_aprobacion"
+                ],
+                "description": "get EstadoAprobacion by id",
+                "operationId": "EstadoAprobacionController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.EstadoAprobacion"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "estado_aprobacion"
+                ],
+                "description": "update the EstadoAprobacion",
+                "operationId": "EstadoAprobacionController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for EstadoAprobacion content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.EstadoAprobacion"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.EstadoAprobacion"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "estado_aprobacion"
+                ],
+                "description": "delete the EstadoAprobacion",
+                "operationId": "EstadoAprobacionController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/plan_estudio/": {
+            "get": {
+                "tags": [
+                    "plan_estudio"
+                ],
+                "description": "get PlanEstudio",
+                "operationId": "PlanEstudioController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.PlanEstudio"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "plan_estudio"
+                ],
+                "description": "create PlanEstudio",
+                "operationId": "PlanEstudioController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for PlanEstudio content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.PlanEstudio"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.PlanEstudio"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/plan_estudio/{id}": {
+            "get": {
+                "tags": [
+                    "plan_estudio"
+                ],
+                "description": "get PlanEstudio by id",
+                "operationId": "PlanEstudioController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.PlanEstudio"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "plan_estudio"
+                ],
+                "description": "update the PlanEstudio",
+                "operationId": "PlanEstudioController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for PlanEstudio content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.PlanEstudio"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.PlanEstudio"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "plan_estudio"
+                ],
+                "description": "delete the PlanEstudio",
+                "operationId": "PlanEstudioController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/plan_estudio_proyecto_academico/": {
+            "get": {
+                "tags": [
+                    "plan_estudio_proyecto_academico"
+                ],
+                "description": "get PlanEstudioProyectoAcademico",
+                "operationId": "PlanEstudioProyectoAcademicoController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.PlanEstudioProyectoAcademico"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "plan_estudio_proyecto_academico"
+                ],
+                "description": "create PlanEstudioProyectoAcademico",
+                "operationId": "PlanEstudioProyectoAcademicoController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for PlanEstudioProyectoAcademico content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.PlanEstudioProyectoAcademico"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.PlanEstudioProyectoAcademico"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/plan_estudio_proyecto_academico/{id}": {
+            "get": {
+                "tags": [
+                    "plan_estudio_proyecto_academico"
+                ],
+                "description": "get PlanEstudioProyectoAcademico by id",
+                "operationId": "PlanEstudioProyectoAcademicoController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.PlanEstudioProyectoAcademico"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "plan_estudio_proyecto_academico"
+                ],
+                "description": "update the PlanEstudioProyectoAcademico",
+                "operationId": "PlanEstudioProyectoAcademicoController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for PlanEstudioProyectoAcademico content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.PlanEstudioProyectoAcademico"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.PlanEstudioProyectoAcademico"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "plan_estudio_proyecto_academico"
+                ],
+                "description": "delete the PlanEstudioProyectoAcademico",
+                "operationId": "PlanEstudioProyectoAcademicoController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.EstadoAprobacion": {
+            "title": "EstadoAprobacion",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "CodigoAbreviacion": {
+                    "type": "string"
+                },
+                "Descripcion": {
+                    "type": "string"
+                },
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Nombre": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.PlanEstudio": {
+            "title": "PlanEstudio",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "AnoResolucion": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "Codigo": {
+                    "type": "string"
+                },
+                "CodigoAbreaviacion": {
+                    "type": "string"
+                },
+                "EspaciosSemestreDistribucion": {
+                    "type": "string"
+                },
+                "EstadoAprobacionId": {
+                    "$ref": "#/definitions/models.EstadoAprobacion"
+                },
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Nombre": {
+                    "type": "string"
+                },
+                "NumeroResolucion": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "NumeroSemestres": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "Observacion": {
+                    "type": "string"
+                },
+                "PlanEstudioPadreId": {
+                    "$ref": "#/definitions/models.PlanEstudio"
+                },
+                "ProyectoAcademicoId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "ResumenPlanEstudios": {
+                    "type": "string"
+                },
+                "SoporteDocumental": {
+                    "type": "string"
+                },
+                "TotalCreditos": {
+                    "type": "number",
+                    "format": "double"
+                }
+            }
+        },
+        "models.PlanEstudioProyectoAcademico": {
+            "title": "PlanEstudioProyectoAcademico",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "FechaCreacion": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "OrdenProyecto": {
+                    "type": "string"
+                },
+                "PlanEstudioId": {
+                    "$ref": "#/definitions/models.PlanEstudio"
+                },
+                "ProyectoAcademicoId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "estado_aprobacion",
+            "description": "EstadoAprobacionController operations for EstadoAprobacion\n"
+        },
+        {
+            "name": "plan_estudio",
+            "description": "PlanEstudioController operations for PlanEstudio\n"
+        },
+        {
+            "name": "plan_estudio_proyecto_academico",
+            "description": "PlanEstudioProyectoAcademicoController operations for PlanEstudioProyectoAcademico\n"
+        }
+    ]
+}

@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/udistrital/planes_estudios_crud/planes_estudios_crud/models"
+	"github.com/udistrital/planes_estudios_crud/models"
 	"github.com/udistrital/utils_oas/time_bogota"
 
 	"github.com/astaxie/beego"
@@ -157,7 +157,7 @@ func (c *PlanEstudioProyectoAcademicoController) GetAll() {
 func (c *PlanEstudioProyectoAcademicoController) Put() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	v := models.Estado{Id: id}
+	v := models.PlanEstudioProyectoAcademico{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if get, errGet := models.GetPlanEstudioProyectoAcademicoById(id); errGet == nil {
 			v.FechaCreacion = time_bogota.TiempoCorreccionFormato(get.FechaCreacion)

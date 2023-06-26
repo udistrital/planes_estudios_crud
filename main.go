@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/udistrital/auditoria"
-	_ "github.com/udistrital/solicitudes_crud/routers"
+	_ "github.com/udistrital/planes_estudios_crud/routers"
 	apistatus "github.com/udistrital/utils_oas/apiStatusLib"
 
 	"github.com/astaxie/beego"
