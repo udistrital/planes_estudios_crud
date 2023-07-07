@@ -9,18 +9,18 @@
 -- 
 -- object: new_database | type: DATABASE --
 -- DROP DATABASE IF EXISTS new_database;
-CREATE DATABASE new_database;
+--CREATE DATABASE new_database;
 -- ddl-end --
 
 
 -- object: plan_estudios | type: SCHEMA --
 -- DROP SCHEMA IF EXISTS plan_estudios CASCADE;
-CREATE SCHEMA plan_estudios;
+--CREATE SCHEMA plan_estudios;
 -- ddl-end --
 ALTER SCHEMA plan_estudios OWNER TO postgres;
 -- ddl-end --
 
-SET search_path TO pg_catalog,public,plan_estudios;
+--SET search_path TO pg_catalog,public,plan_estudios;
 -- ddl-end --
 
 -- object: plan_estudios.plan_estudio | type: TABLE --
