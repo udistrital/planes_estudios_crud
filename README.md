@@ -81,7 +81,7 @@ Pruebas unitarias
 
 ## Modelo de Datos
 
-[Modelo de Datos API CRUD Inscripcion](https://github.com/udistrital/inscripcion_crud/blob/develop/inscripcion_V_19.png)
+[Modelo de Datos API CRUD Planes de Estudios](https://github.com/udistrital/planes_estudios_crud/blob/develop/database/modelo/Planes_estudios_sql.png)
 
 
 
