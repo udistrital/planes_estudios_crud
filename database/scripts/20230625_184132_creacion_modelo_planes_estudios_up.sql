@@ -17,7 +17,7 @@
 -- DROP SCHEMA IF EXISTS plan_estudios CASCADE;
 --CREATE SCHEMA plan_estudios;
 -- ddl-end --
-ALTER SCHEMA plan_estudios OWNER TO postgres;
+--ALTER SCHEMA plan_estudios OWNER TO postgres;
 -- ddl-end --
 
 --SET search_path TO pg_catalog,public,plan_estudios;
