@@ -79,7 +79,7 @@ COMMENT ON COLUMN plan_estudios.plan_estudio.plan_estudio_padre_id IS E'Campo pa
 -- ddl-end --
 COMMENT ON COLUMN plan_estudios.plan_estudio.estado_aprobacion_id IS E'Campo para el registro del estado del plan de estudio';
 -- ddl-end --
-ALTER TABLE plan_estudios.plan_estudio OWNER TO postgres;
+--ALTER TABLE plan_estudios.plan_estudio OWNER TO postgres;
 -- ddl-end --
 
 -- object: plan_estudios.estado_aprobacion | type: TABLE --
@@ -109,7 +109,7 @@ COMMENT ON COLUMN plan_estudios.estado_aprobacion.fecha_creacion IS E'Campo para
 -- ddl-end --
 COMMENT ON COLUMN plan_estudios.estado_aprobacion.fecha_modificacion IS E'Campo para el registro de la fecha de modificacion';
 -- ddl-end --
-ALTER TABLE plan_estudios.estado_aprobacion OWNER TO postgres;
+--ALTER TABLE plan_estudios.estado_aprobacion OWNER TO postgres;
 -- ddl-end --
 
 -- object: plan_estudios.plan_estudio_proyecto_academico | type: TABLE --
@@ -137,7 +137,7 @@ COMMENT ON COLUMN plan_estudios.plan_estudio_proyecto_academico.fecha_creacion I
 -- ddl-end --
 COMMENT ON COLUMN plan_estudios.plan_estudio_proyecto_academico.fecha_modificacion IS E'Campo para el registro de la fecha de modificacion';
 -- ddl-end --
-ALTER TABLE plan_estudios.plan_estudio_proyecto_academico OWNER TO postgres;
+--ALTER TABLE plan_estudios.plan_estudio_proyecto_academico OWNER TO postgres;
 -- ddl-end --
 
 -- object: rel_estado_aprobacion_plan_estudio | type: CONSTRAINT --
