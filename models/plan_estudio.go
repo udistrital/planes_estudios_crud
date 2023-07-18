@@ -26,7 +26,7 @@ type PlanEstudio struct {
 	Activo                       bool              `orm:"column(activo)"`
 	FechaCreacion                string            `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 	FechaModificacion            string            `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
-	PlanEstudioPadreId           *PlanEstudio      `orm:"column(plan_estudio_padre_id);rel(fk)"`
+	PlanEstudioPadreId           *PlanEstudio      `orm:"column(plan_estudio_padre_id);rel(fk);null"`
 	EstadoAprobacionId           *EstadoAprobacion `orm:"column(estado_aprobacion_id);rel(fk)"`
 }
 
