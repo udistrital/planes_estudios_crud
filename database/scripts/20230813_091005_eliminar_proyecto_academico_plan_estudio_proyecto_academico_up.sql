@@ -1,0 +1,1 @@
+ALTER TABLE plan_estudios.plan_estudio_proyecto_academico DROP COLUMN proyecto_academico_id;

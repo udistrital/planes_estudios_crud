@@ -10,13 +10,12 @@ import (
 )
 
 type PlanEstudioProyectoAcademico struct {
-	Id                  int          `orm:"column(id);pk"`
-	PlanEstudioId       *PlanEstudio `orm:"column(plan_estudio_id);rel(fk)"`
-	ProyectoAcademicoId int          `orm:"column(proyecto_academico_id)"`
-	OrdenProyecto       string       `orm:"column(orden_proyecto);type(json)"`
-	Activo              bool         `orm:"column(activo)"`
-	FechaCreacion       string       `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion   string       `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	Id                int          `orm:"column(id);pk"`
+	PlanEstudioId     *PlanEstudio `orm:"column(plan_estudio_id);rel(fk)"`
+	OrdenPlan         string       `orm:"column(orden_plan);type(json)"`
+	Activo            bool         `orm:"column(activo)"`
+	FechaCreacion     string       `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion string       `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 func (t *PlanEstudioProyectoAcademico) TableName() string {
