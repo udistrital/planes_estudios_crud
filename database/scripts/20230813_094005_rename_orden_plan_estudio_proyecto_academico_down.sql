@@ -1,0 +1,1 @@
+ALTER TABLE plan_estudios.plan_estudio_proyecto_academico RENAME COLUMN orden_plan TO orden_proyecto;

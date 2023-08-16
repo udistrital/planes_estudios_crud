@@ -581,6 +581,9 @@
                 "CodigoAbreaviacion": {
                     "type": "string"
                 },
+                "EsPlanEstudioPadre": {
+                    "type": "boolean"
+                },
                 "EspaciosSemestreDistribucion": {
                     "type": "string"
                 },
@@ -610,9 +613,6 @@
                 },
                 "Observacion": {
                     "type": "string"
-                },
-                "PlanEstudioPadreId": {
-                    "$ref": "#/definitions/models.PlanEstudio"
                 },
                 "ProyectoAcademicoId": {
                     "type": "integer",
@@ -647,15 +647,11 @@
                     "type": "integer",
                     "format": "int64"
                 },
-                "OrdenProyecto": {
+                "OrdenPlan": {
                     "type": "string"
                 },
                 "PlanEstudioId": {
                     "$ref": "#/definitions/models.PlanEstudio"
-                },
-                "ProyectoAcademicoId": {
-                    "type": "integer",
-                    "format": "int64"
                 }
             }
         }
