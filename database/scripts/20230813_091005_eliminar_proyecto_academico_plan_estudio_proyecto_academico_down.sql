@@ -1,0 +1,1 @@
+ALTER TABLE plan_estudios.plan_estudio_proyecto_academico ADD COLUMN proyecto_academico_id INTEGER NULL;
