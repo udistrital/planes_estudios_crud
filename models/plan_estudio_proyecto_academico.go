@@ -10,7 +10,7 @@ import (
 )
 
 type PlanEstudioProyectoAcademico struct {
-	Id                int          `orm:"column(id);pk"`
+	Id                int          `orm:"column(id);pk;auto"`
 	PlanEstudioId     *PlanEstudio `orm:"column(plan_estudio_id);rel(fk)"`
 	OrdenPlan         string       `orm:"column(orden_plan);type(json)"`
 	Activo            bool         `orm:"column(activo)"`
