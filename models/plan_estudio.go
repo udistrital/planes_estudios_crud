@@ -23,6 +23,8 @@ type PlanEstudio struct {
 	ResumenPlanEstudios          string            `orm:"column(resumen_plan_estudios);type(json);null"`
 	SoporteDocumental            string            `orm:"column(soporte_documental);type(json);null"`
 	Observacion                  string            `orm:"column(observacion);null"`
+	RevisorId                    int               `orm:"column(revisor_id);null"`
+	RevisorRol                   string            `orm:"column(revisor_rol);null"`
 	Activo                       bool              `orm:"column(activo)"`
 	FechaCreacion                string            `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 	FechaModificacion            string            `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
