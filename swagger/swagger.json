@@ -621,6 +621,13 @@
                 "ResumenPlanEstudios": {
                     "type": "string"
                 },
+                "RevisorId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "RevisorRol": {
+                    "type": "string"
+                },
                 "SoporteDocumental": {
                     "type": "string"
                 },
