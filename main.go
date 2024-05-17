@@ -1,6 +1,8 @@
 package main
 
 import (
+	"net/url"
+
 	"github.com/udistrital/auditoria"
 	_ "github.com/udistrital/planes_estudios_crud/routers"
 	apistatus "github.com/udistrital/utils_oas/apiStatusLib"
@@ -15,7 +17,7 @@ import (
 func init() {
 	orm.RegisterDataBase("default", "postgres", "postgres://"+
 		beego.AppConfig.String("PGuser")+":"+
-		beego.AppConfig.String("PGpass")+"@"+
+		url.QueryEscape(beego.AppConfig.String("PGpass"))+"@"+
 		beego.AppConfig.String("PGhost")+":"+
 		beego.AppConfig.String("PGport")+"/"+
 		beego.AppConfig.String("PGdb")+"?sslmode=disable&search_path="+
